@@ -37,34 +37,37 @@
       <div class="surprise-panel">
         <p class="panel-title">✨ Hộp quà tương tác</p>
         <p class="panel-text">
-          Bấm vào từng nút bên dưới để mở ra một khung ảnh với hiệu ứng
-          <span>như hai cánh cửa đang hé mở</span>.
+          Ảnh sẽ được lấy trực tiếp từ thư mục <span>img</span> của bạn và mở ra
+          với hiệu ứng <span>cánh cửa + ánh sáng lung linh</span> mềm mại hơn.
         </p>
 
         <div class="surprise-buttons">
           <button
             class="surprise-btn"
-            data-scene="cake"
-            data-title="Chiếc bánh ngọt ngào"
-            data-text="Một chiếc bánh lung linh mở ra như món quà nhỏ cho ngày đặc biệt."
+            data-image="img/HPBD.png"
+            data-accent="rgba(255, 79, 163, 0.45)"
+            data-title="Khoảnh khắc dịu dàng"
+            data-text="Ảnh của bạn được mở ra nhẹ nhàng, sáng dần và rõ nét hơn."
           >
-            Mở ảnh 1 🎂
+            Mở ảnh hồng 💖
           </button>
           <button
             class="surprise-btn"
-            data-scene="gift"
-            data-title="Hộp quà yêu thương"
-            data-text="Nhẹ nhàng, ấm áp và đầy màu sắc — đúng chất bất ngờ sinh nhật."
+            data-image="img/HPBD.png"
+            data-accent="rgba(255, 209, 102, 0.42)"
+            data-title="Khung ảnh lung linh"
+            data-text="Hiệu ứng mở ảnh mềm, có thêm ánh sáng quét qua như khung ảnh kỷ niệm."
           >
-            Mở ảnh 2 🎁
+            Mở ảnh vàng ✨
           </button>
           <button
             class="surprise-btn"
-            data-scene="night"
-            data-title="Bầu trời điều ước"
-            data-text="Một khung trời lấp lánh để gửi thêm thật nhiều điều ước đẹp."
+            data-image="img/HPBD.png"
+            data-accent="rgba(103, 232, 249, 0.42)"
+            data-title="Mở ảnh kiểu điện ảnh"
+            data-text="Ảnh hiện ra từ từ với glow xanh nhẹ để nhìn nổi bật và đẹp mắt hơn."
           >
-            Mở ảnh 3 ✨
+            Mở ảnh xanh 💎
           </button>
         </div>
       </div>
@@ -84,9 +87,11 @@
 
       <div class="door-stage">
         <img id="revealImage" class="reveal-photo" alt="Ảnh bất ngờ" />
+        <div class="photo-shine"></div>
         <div class="door door-left"></div>
         <div class="door door-right"></div>
         <div class="center-glow"></div>
+        <div class="sparkle-layer" id="sparkleLayer"></div>
       </div>
     </div>
   </div>
