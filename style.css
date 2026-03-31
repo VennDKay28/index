@@ -112,6 +112,10 @@ h1 {
   gap: 12px;
 }
 
+.surprise-buttons {
+  perspective: 1200px;
+}
+
 button {
   border: none;
   border-radius: 999px;
@@ -155,8 +159,79 @@ button:hover {
 }
 
 .surprise-btn {
+  position: relative;
   min-width: 160px;
-  background: linear-gradient(135deg, rgba(103, 232, 249, 0.85), rgba(255, 79, 163, 0.88));
+  padding: 15px 20px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  text-shadow: 0 1px 1px rgba(80, 13, 45, 0.35);
+  background: linear-gradient(135deg, #7de7ff 0%, #ff72ba 55%, #ffc14d 100%);
+  box-shadow:
+    0 9px 0 rgba(123, 27, 84, 0.95),
+    0 18px 28px rgba(255, 79, 163, 0.26),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transform: translateY(0) rotateX(10deg);
+  transform-style: preserve-3d;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    filter 0.22s ease;
+}
+
+.surprise-btn::before,
+.surprise-btn::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.surprise-btn::before {
+  inset: 1px 1px auto 1px;
+  height: 52%;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.42), transparent);
+  opacity: 0.9;
+}
+
+.surprise-btn::after {
+  left: 10px;
+  right: 10px;
+  bottom: -10px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(20, 6, 28, 0.3);
+  filter: blur(9px);
+  z-index: -1;
+}
+
+.surprise-btn:nth-child(1) {
+  background: linear-gradient(135deg, #ff9bc8 0%, #ff5ca8 55%, #ffd06b 100%);
+}
+
+.surprise-btn:nth-child(2) {
+  background: linear-gradient(135deg, #ffe08a 0%, #ff9b68 52%, #ff69b4 100%);
+}
+
+.surprise-btn:nth-child(3) {
+  background: linear-gradient(135deg, #89f0ff 0%, #67c9ff 45%, #c07cff 100%);
+}
+
+.surprise-btn:hover {
+  transform: translateY(-4px) rotateX(0deg) scale(1.02);
+  filter: saturate(1.05) brightness(1.03);
+  box-shadow:
+    0 13px 0 rgba(123, 27, 84, 0.95),
+    0 24px 34px rgba(255, 79, 163, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.surprise-btn:active {
+  transform: translateY(5px) scale(0.99);
+  box-shadow:
+    0 4px 0 rgba(123, 27, 84, 0.92),
+    0 10px 18px rgba(255, 79, 163, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .bg-glow {
