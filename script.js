@@ -114,12 +114,24 @@ function closeRevealModal() {
 
 setupAmbientHearts();
 
-celebrateBtn.addEventListener('click', () => {
+celebrateBtn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  const rect = celebrateBtn.getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
+  heartShower(isMobileView() ? 18 : 30, x, y);
   heartShower(isMobileView() ? 18 : 30, window.innerWidth / 2, window.innerHeight / 2);
 });
 
 surpriseBtns.forEach((button) => {
-  button.addEventListener('click', () => openReveal(button));
+  button.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const rect = button.getBoundingClientRect();
+    const x = rect.left + rect.width / 2;
+    const y = rect.top + rect.height / 2;
+    heartShower(isMobileView() ? 12 : 18, x, y);
+    openReveal(button);
+  });
 });
 
 closeReveal.addEventListener('click', closeRevealModal);
@@ -137,8 +149,10 @@ window.addEventListener('keydown', (event) => {
 });
 
 window.addEventListener('click', (event) => {
+  // Skip if clicking on button elements
+  if (event.target.closest('button')) return;
+  
   const burstAmount = isMobileView() ? 4 : 8;
-
   for (let i = 0; i < burstAmount; i++) {
     setTimeout(() => dropHeart(true, event.clientX, event.clientY), i * 30);
   }
